@@ -12,9 +12,9 @@
 <body>
     <div class="container col-lg-8 col-lg-offset-2">
         <ul class="nav nav-tabs">
-            <li class="active"><a aria-expanded="true" href="#fast" data-toggle="tab"><h4>Бърза настройка</h4></a></li>
-            <li class=""><a aria-expanded="false" href="#own" data-toggle="tab"><h4>Собствени програми</h4></a></li>
-            <li class=""><a aria-expanded="false" href="#other" data-toggle="tab"><h4>Готови програми</h4></a></li>
+            <li class="active col-lg-4"><a aria-expanded="true" href="#fast" data-toggle="tab"><h5>Бърза настройка</h5></a></li>
+            <li class="col-lg-4"><a aria-expanded="false" href="#own" data-toggle="tab"><h5>Собствени програми</h5></a></li>
+            <li class="col-lg-4"><a aria-expanded="false" href="#other" data-toggle="tab"><h5>Готови програми</h5></a></li>
         </ul>
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade active in" id="fast">
@@ -22,7 +22,7 @@
                 <div class="row vertical-center">
                     <div class="checkbox col-lg-6">
                         <label>
-                            <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Предпране
+                            <input type="checkbox" class="my-checkbox" name="prewash" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Предпране
                         </label>
                     </div>
                     <div class="col-lg-6">
@@ -35,7 +35,7 @@
                 <div class="row vertical-center">
                     <div class="checkbox col-lg-6">
                         <label>
-                            <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Пране
+                            <input type="checkbox" class="my-checkbox" name="wash" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Пране
                         </label>
                     </div>
                     <div class="col-lg-6">
@@ -48,7 +48,7 @@
                 <div class="row vertical-center">
                     <div class="checkbox col-lg-6">
                         <label>
-                            <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Плакнене
+                            <input type="checkbox" class="my-checkbox" name="rinse" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Плакнене
                         </label>
                     </div>
                     <div class="col-lg-6">
@@ -60,14 +60,20 @@
                 <!--центрофуга-->
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Центрофуга
+                        <input type="checkbox" class="my-checkbox" name="centrifuge" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Центрофуга
                     </label>
                 </div>
                 <!--гладене-->
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Лесно гладене
+                        <input type="checkbox" class="my-checkbox" name="iron" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Лесно гладене
                     </label>
+                </div>
+                <div class="well well-sm">
+                    Общо времетраене на програмата: X
+                </div>
+                <div class="col-lg-4 col-lg-offset-4">
+                    <a href="#" class="btn btn-danger btn-lg">СТАРТ</a>
                 </div>
             </div>
             <div class="tab-pane fade" id="own">
@@ -86,7 +92,7 @@
     <script src="../public/bootstrap/bootstrap-modal.js"></script>
     <script src="../public/bootstrap/bootswatch.js"></script>
     <script type="text/javascript">
-    $("[name='my-checkbox']").bootstrapSwitch();
+    $('.my-checkbox').bootstrapSwitch();
     $('.my-slider').slider({
         formatter: function(value) {
             return 'Времетраене в минути: ' + value;
@@ -100,6 +106,30 @@
     });
     $("#rinse-slider").on("slide", function(slideEvt) {
         $("#rinse-slider-value").text(slideEvt.value);
+    });
+
+    $('input[name="prewash"]').on('switchChange.bootstrapSwitch', function(event, state) {
+        if (state) {
+            $("#prewash-slider").slider("enable");
+        } else {
+            $("#prewash-slider").slider("disable");
+        }
+    });
+
+    $('input[name="wash"]').on('switchChange.bootstrapSwitch', function(event, state) {
+        if (state) {
+            $("#wash-slider").slider("enable");
+        } else {
+            $("#wash-slider").slider("disable");
+        }
+    });
+
+    $('input[name="rinse"]').on('switchChange.bootstrapSwitch', function(event, state) {
+        if (state) {
+            $("#rinse-slider").slider("enable");
+        } else {
+            $("#rinse-slider").slider("disable");
+        }
     });
     </script>
 </body>
