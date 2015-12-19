@@ -12,6 +12,14 @@ module.exports = function(database, templates) {
         res.send(templates.loginTemplate({}));
     });
 
+    router.get('/home', function(req, res) {
+        //if (req.user) {
+            res.send(templates.homeTemplate({}));
+        //} else {
+        //    res.send(templates.loginTemplate({}));
+        //}
+    });
+
     router.post('/login', function(req, res) {
         validator.validateLoginModel(req.body, function(user, valid) {
             if (valid) {

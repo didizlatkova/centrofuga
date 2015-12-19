@@ -2,7 +2,7 @@ var fs = require("fs"),
     path = require('path'),
     handlebars = require("handlebars"),    
     loginTemplateFile = fs.readFileSync(path.join(__dirname, '../views/login.html'), 'utf8'),
-    errorTemplateFile = fs.readFileSync(path.join(__dirname, '../views/error.html'), 'utf8');    
+    homeTemplateFile = fs.readFileSync(path.join(__dirname, '../views/home.html'), 'utf8');    
 
 module.exports = {
     setup: function() {
@@ -36,7 +36,7 @@ module.exports = {
 
         return {
             loginTemplate: handlebars.compile(loginTemplateFile),
-            errorTemplate: handlebars.compile(errorTemplateFile)
+            homeTemplate: handlebars.compile(homeTemplateFile)
         };
     }
 };
