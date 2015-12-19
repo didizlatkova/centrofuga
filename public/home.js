@@ -1,5 +1,6 @@
 (function() {
-    var intervalIdl;
+    var intervalId,
+        steps = [];
 
     $('.my-checkbox').bootstrapSwitch();
 
@@ -88,18 +89,44 @@
 
     var incrementProgress = function() {
         var step = 10;
-        var currentWidth = $('#progress').width() / $('#progress').parent().width() * 100;
-        console.log(currentWidth);
+        var currentWidth = $('#progress').width() / $('#progress').parent().width() * 100 + step;
+        console.log("currentWidth", currentWidth);
         if (currentWidth >= 100) {
             console.log("ready", intervalId);
             clearInterval(intervalId);
+            $('#gif').hide();
+            $('#washed').show();
         }
-        $('#progress').width(currentWidth + step + '%');
+
+        $('#progress').width(currentWidth + '%');
+        var step1 = Math.floor(currentWidth * steps.length / 100);
+        console.log("step", step1);
+        $('#process-step').text(steps[step1]);
     }
 
     $('#start-btn').on('click', function(event, state) {
         $('#setup-container').hide();
         $('#gif').show();
+        if ($('input[name="prewash"]').is(':checked')) {
+            steps.push("Предпране");
+        }
+
+        if ($('input[name="wash"]').is(':checked')) {
+            steps.push("Пране");
+        }
+
+        if ($('input[name="rinse"]').is(':checked')) {
+            steps.push("Изплакване");
+        }
+
+        if ($('input[name="centrifuge"]').is(':checked')) {
+            steps.push("Центрофуга");
+        }
+
+        if ($('input[name="iron"]').is(':checked')) {
+            steps.push("Още малко въртене");
+        }
+
         intervalId = setInterval(incrementProgress, 1);
     });
 })();
