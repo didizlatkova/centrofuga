@@ -16,8 +16,21 @@
             <li class="col-lg-4"><a aria-expanded="false" href="#own" data-toggle="tab"><h5>Собствени програми</h5></a></li>
             <li class="col-lg-4"><a aria-expanded="false" href="#other" data-toggle="tab"><h5>Готови програми</h5></a></li>
         </ul>
-        <div id="myTabContent" class="tab-content">
+        <div id="setup-container" class="tab-content">
             <div class="tab-pane fade active in" id="fast">
+                <!--температура-->
+                <div class="row vertical-center">
+                    <div class="checkbox col-lg-6">
+                        <label>
+                            Температура
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        <input id="temperature-slider" data-slider-id='my-slider' class='my-slider' type="text" data-slider-min="30" data-slider-max="90" data-slider-step="10" data-slider-value="40" />
+                        <span class="slider-value" id="temperature-slider-value">40</span>
+                        <img src="img/term.png">
+                    </div>
+                </div>
                 <!--предпране-->
                 <div class="row vertical-center">
                     <div class="checkbox col-lg-6">
@@ -84,8 +97,13 @@
                 <div class="well well-sm">
                     Общо времетраене на програмата: <span id="time"></span> минути.
                 </div>
-                <div class="col-lg-offset-5">
-                    <a href="#" class="btn btn-danger btn-lg">СТАРТ</a>
+                <div class="row vertical-center">
+                    <div class="col-lg-6 col-lg-offset-2">
+                        <a id="start-btn" href="#" class="btn btn-danger btn-lg">СТАРТ</a>
+                    </div>
+                    <div class="col-lg-6 col-lg-offset-2">
+                        <a href="#" class="btn btn-success btn-lg">ДОБАВИ</a>
+                    </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="own">
@@ -93,6 +111,16 @@
             </div>
             <div class="tab-pane fade" id="other">
                 <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+            </div>
+        </div>
+        <div id="gif">
+            <div class="row col-lg-6 col-lg-offset-3">
+                <img src="img/doge.gif">
+            </div>
+            <div class="row col-lg-12">
+                <div class="progress progress-striped active">
+                    <div id="progress" class="progress-bar" style="width: 0%"></div>
+                </div>
             </div>
         </div>
     </div>

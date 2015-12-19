@@ -1,4 +1,5 @@
 (function() {
+    var intervalIdl;
 
     $('.my-checkbox').bootstrapSwitch();
 
@@ -18,6 +19,10 @@
 
     $("#rinse-slider").on("slide", function(slideEvt) {
         $("#rinse-slider-value").text(slideEvt.value);
+    });
+
+    $("#temperature-slider").on("slide", function(slideEvt) {
+        $("#temperature-slider-value").text(slideEvt.value);
     });
 
     $('input[name="prewash"]').on('switchChange.bootstrapSwitch', function(event, state) {
@@ -52,6 +57,10 @@
         calculateTotalTime();
     });
 
+    $(function() {
+        calculateTotalTime();
+    });
+
     var calculateTotalTime = function() {
         var time = 0;
         if ($('input[name="prewash"]').is(':checked')) {
@@ -76,4 +85,21 @@
 
         $("#time").text(time);
     };
+
+    var incrementProgress = function() {
+        var step = 10;
+        var currentWidth = $('#progress').width() / $('#progress').parent().width() * 100;
+        console.log(currentWidth);
+        if (currentWidth >= 100) {
+            console.log("ready", intervalId);
+            clearInterval(intervalId);
+        }
+        $('#progress').width(currentWidth + step + '%');
+    }
+
+    $('#start-btn').on('click', function(event, state) {
+        $('#setup-container').hide();
+        $('#gif').show();
+        intervalId = setInterval(incrementProgress, 1);
+    });
 })();

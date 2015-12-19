@@ -7534,3 +7534,12 @@ input[type="checkbox"]:disabled:checked:after,
   margin-left: 20px;
   margin-right: 20px;
 }
+
+#gif {
+  display: none;
+}
+
+.progress-striped {
+  margin-top: 20px;
+  height: 20px;
+}
