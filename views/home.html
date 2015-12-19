@@ -58,21 +58,33 @@
                     </div>
                 </div>
                 <!--центрофуга-->
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="my-checkbox" name="centrifuge" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Центрофуга
-                    </label>
+                <div class="row vertical-center">
+                    <div class="checkbox col-lg-6">
+                        <label>
+                            <input type="checkbox" class="my-checkbox" name="centrifuge" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Центрофуга
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="slider-value">10</span>
+                        <img src="img/timer.png">
+                    </div>
                 </div>
                 <!--гладене-->
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" class="my-checkbox" name="iron" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Лесно гладене
-                    </label>
+                <div class="row vertical-center">
+                    <div class="checkbox col-lg-6">
+                        <label>
+                            <input type="checkbox" class="my-checkbox" name="iron" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Лесно гладене
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        <span class="slider-value">5</span>
+                        <img src="img/timer.png">
+                    </div>
                 </div>
                 <div class="well well-sm">
-                    Общо времетраене на програмата: X
+                    Общо времетраене на програмата: <span id="time"></span> минути.
                 </div>
-                <div class="col-lg-4 col-lg-offset-4">
+                <div class="col-lg-offset-5">
                     <a href="#" class="btn btn-danger btn-lg">СТАРТ</a>
                 </div>
             </div>
