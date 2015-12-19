@@ -1,0 +1,24 @@
+{
+  "name": "centrofuga",
+  "version": "0.0.1",
+  "description": "A project for HackFMI 6",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "handlebars": "^4.0.5",
+    "mongodb": "^2.0.52"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/didizlatkova/centrofuga"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/didizlatkova/centrofuga/issues"
+  }
+}
