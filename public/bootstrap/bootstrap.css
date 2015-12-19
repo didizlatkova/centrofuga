@@ -7518,3 +7518,16 @@ input[type="checkbox"]:disabled:checked:after,
 .carousel-caption h6 {
   color: inherit;
 }
+
+
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+.slider-value {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+}

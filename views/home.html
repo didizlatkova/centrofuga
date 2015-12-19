@@ -4,6 +4,7 @@
 <head>
     <title>Centrofuga</title>
     <link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+    <link rel="stylesheet" href="/public/bootstrap/bootstrap-slider.css" media="screen">
     <link rel="stylesheet" href="/public/bootstrap/bootstrap-switch.css" media="screen">
     <link rel="stylesheet" href="/public/bootstrap/bootstrap.css" media="screen">
 </head>
@@ -17,26 +18,52 @@
         </ul>
         <div id="myTabContent" class="tab-content">
             <div class="tab-pane fade active in" id="fast">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Предпране
-                    </label>
+                <!--предпране-->
+                <div class="row vertical-center">
+                    <div class="checkbox col-lg-6">
+                        <label>
+                            <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Предпране
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        <input id="prewash-slider" data-slider-id='my-slider' class='my-slider' type="text" data-slider-min="10" data-slider-max="30" data-slider-step="5" data-slider-value="20" />
+                        <span class="slider-value" id="prewash-slider-value">20</span>
+                        <img src="img/timer.png">
+                    </div>
                 </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Пране
-                    </label>
+                <!--пране-->
+                <div class="row vertical-center">
+                    <div class="checkbox col-lg-6">
+                        <label>
+                            <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Пране
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        <input id="wash-slider" data-slider-id='my-slider' class='my-slider' type="text" data-slider-min="10" data-slider-max="60" data-slider-step="5" data-slider-value="35" />
+                        <span class="slider-value" id="wash-slider-value">35</span>
+                        <img src="img/timer.png">
+                    </div>
                 </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Плакнене
-                    </label>
+                <!--плакнене-->
+                <div class="row vertical-center">
+                    <div class="checkbox col-lg-6">
+                        <label>
+                            <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Плакнене
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        <input id="rinse-slider" data-slider-id='my-slider' class='my-slider' type="text" data-slider-min="10" data-slider-max="60" data-slider-step="5" data-slider-value="35" />
+                        <span class="slider-value" id="rinse-slider-value">35</span>
+                        <img src="img/timer.png">
+                    </div>
                 </div>
+                <!--центрофуга-->
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Центрофуга
                     </label>
                 </div>
+                <!--гладене-->
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" name="my-checkbox" data-off-text="Не" data-on-text="Да" data-handle-width="50" checked> Лесно гладене
@@ -53,12 +80,27 @@
     </div>
     <script src="../public/bootstrap/jquery-1.js"></script>
     <script src="../public/jquery-migrate.js"></script>
+    <script src="../public/bootstrap/bootstrap-slider.js"></script>
     <script src="../public/bootstrap/bootstrap-switch.js"></script>
     <script src="../public/bootstrap/bootstrap.js"></script>
     <script src="../public/bootstrap/bootstrap-modal.js"></script>
     <script src="../public/bootstrap/bootswatch.js"></script>
     <script type="text/javascript">
     $("[name='my-checkbox']").bootstrapSwitch();
+    $('.my-slider').slider({
+        formatter: function(value) {
+            return 'Времетраене в минути: ' + value;
+        }
+    });
+    $("#prewash-slider").on("slide", function(slideEvt) {
+        $("#prewash-slider-value").text(slideEvt.value);
+    });
+    $("#wash-slider").on("slide", function(slideEvt) {
+        $("#wash-slider-value").text(slideEvt.value);
+    });
+    $("#rinse-slider").on("slide", function(slideEvt) {
+        $("#rinse-slider-value").text(slideEvt.value);
+    });
     </script>
 </body>
 
