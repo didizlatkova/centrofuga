@@ -88,20 +88,16 @@
     };
 
     var incrementProgress = function() {
-        var step = 10;
-        var currentWidth = $('#progress').width() / $('#progress').parent().width() * 100 + step;
-        console.log("currentWidth", currentWidth);
+        var currentWidth = $('#progress').width() / $('#progress').parent().width() * 100 + 10;
         if (currentWidth >= 100) {
-            console.log("ready", intervalId);
             clearInterval(intervalId);
             $('#gif').hide();
             $('#washed').show();
         }
 
         $('#progress').width(currentWidth + '%');
-        var step1 = Math.floor(currentWidth * steps.length / 100);
-        console.log("step", step1);
-        $('#process-step').text(steps[step1]);
+        var step = Math.floor(currentWidth * steps.length / 100);
+        $('#process-step').text(steps[step]);
     }
 
     $('#start-btn').on('click', function(event, state) {
