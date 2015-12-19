@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Чурулик</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/public/bootstrap/bootstrap.css" media="screen">
+    <link rel="stylesheet" href="/public/bootstrap/bootswatch.css">
+    <script src="/public/bootstrap/ga.js" async="" type="text/javascript"></script>
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-23019901-1']);
+        _gaq.push(['_setDomainName', "bootswatch.com"]);
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+<body>
+    {{> nav }}
+    <div class="container">
+        <div class="page-header" id="banner">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <h1>{{message}}<h1>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="sponsor">
+                        <img src="/img/sad-tweety.png" alt="Туити">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../public/bootstrap/jquery-1.js"></script>
+    <script src="../public/bootstrap/bootstrap.js"></script>
+    <script src="../public/bootstrap/bootswatch.js"></script>
+</body>
+</html>
