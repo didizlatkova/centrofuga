@@ -15,19 +15,22 @@
             <p><a class="btn btn-primary btn-lg">Научи повече</a></p>
         </div>
         <div class="col-lg-offset-3 col-lg-4">
-            <form class="form-horizontal">
+            <form method="post" action="/login" class="form-horizontal">
                 <fieldset>
                     <legend>Вход</legend>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <input class="form-control" id="inputEmail" placeholder="Потребителско име" type="text">
+                            <input class="form-control" value="{{userNameLogin}}" id="inputUser" placeholder="Потребителско име" title="Потребителско име" type="text" name="userNameLogin">
+                            <p class="text-danger">{{userNameLoginError}}</p>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-12">
-                            <input class="form-control" id="inputPassword" placeholder="Парола" type="password">
+                            <input class="form-control" id="inputPassword" placeholder="Парола" title="Парола" type="password" name="passwordLogin">
+                            <p class="text-danger">{{passwordLoginError}}</p>
                         </div>
                     </div>
+                    <p class="text-danger">{{generalError}}</p>
                     <div class="form-group">
                         <div class="col-lg-10">
                             <button type="submit" class="btn btn-primary">Влез</button>

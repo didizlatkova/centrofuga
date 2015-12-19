@@ -4,16 +4,32 @@ var express = require('express'),
     path = require('path');
 
 module.exports = function(database, templates) {
-    // var usersDb = database.collection('users'),
-    //     programsDb = database.collection('programs'),
-    //     users = require('../db/users')(usersDb),
-    //     programs = require('../db/programs')(programsDb, usersDb),
-    //     programsManager = require('../bl/programs-manager')(),
-    //     usersManager = require('../bl/users-manager')(database),
-    //     validator = require('../bl/validator')(database);
+    var usersDb = database.collection('users'),
+        users = require('../db/users')(usersDb),
+        validator = require('../bl/validator')(database);
 
     router.get('/', function(req, res) {
         res.send(templates.loginTemplate({}));
+    });
+
+    router.post('/login', function(req, res) {
+        validator.validateLoginModel(req.body, function(user, valid) {
+            if (valid) {
+                var publicUser = {
+                    userName: user.userNameLogin
+                };
+                req.login(publicUser, function(err) {
+                    if (err) {
+                        user.generalError = err.message;
+                        return res.send(templates.loginTemplate(user));
+                    }
+
+                    res.redirect('/home');
+                });
+            } else {
+                res.send(templates.loginTemplate(user));
+            }
+        });
     });
 
     return router;

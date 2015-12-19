@@ -8,7 +8,7 @@ var express = require('express'),
     passport = require('passport'),
     session = require('express-session'),
     port = 3000,
-    dburl = 'mongodb://192.168.192.100/centrofuga';
+    dburl = 'mongodb://192.168.192.100/Centrofuga';
 
 function setup_express(routes) {
     app.use('/public', express.static(path.join(__dirname, 'public')));
