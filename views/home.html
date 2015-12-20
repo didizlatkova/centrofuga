@@ -102,15 +102,37 @@
                         <a id="start-btn" href="#" class="btn btn-danger btn-lg">СТАРТ</a>
                     </div>
                     <div class="col-lg-6 col-lg-offset-2">
-                        <a href="#" class="btn btn-success btn-lg">ЗАПАЗИ</a>
+                        <form method="post" action="/add">
+                            <input type="hidden" name="temperature">
+                            <input type="hidden" name="prewash">
+                            <input type="hidden" name="wash">
+                            <input type="hidden" name="rinse">
+                            <input type="hidden" name="centrifuge">
+                            <input type="hidden" name="iron">
+                            <button type="submit" class="btn btn-success btn-lg">ЗАПАЗИ</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="own">
-                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+                <div class="page-header" id="banner">
+                    {{#each ownPrograms}}
+                    <div class="col-lg-4 col-md-3 col-sm-3">
+                        {{> program}}
+                    </div>
+                    {{/each}}
+                </div>
             </div>
             <div class="tab-pane fade" id="other">
-                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+                <div class="page-header" id="banner">
+                    <div class="row">
+                        {{#each defaultPrograms}}
+                        <div class="col-lg-4 col-md-3 col-sm-3">
+                            {{> program}}
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
             </div>
         </div>
         <div id="gif">

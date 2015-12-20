@@ -7536,6 +7536,12 @@ input[type="checkbox"]:disabled:checked:after,
   margin-right: 20px;
 }
 
+.margined span {
+  font-size: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 #gif, #washed {
   display: none;
 }
@@ -7543,4 +7549,8 @@ input[type="checkbox"]:disabled:checked:after,
 .progress-striped {
   margin-top: 20px;
   height: 20px;
+}
+
+strong {
+  font-size: 15px;
 }

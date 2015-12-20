@@ -1,0 +1,39 @@
+<div class="panel panel-success">
+    <div class="panel-heading message-wrapper">
+        <h3 class="panel-title">{{programName}}</h3>
+    </div>
+    <div class="panel-body profile-wrapper margined">
+        <div class="row">
+        	<span class="col-lg-6">Температура:</span>
+        	<span>{{temperature}}</span> <img src="img/term.png">
+        </div>
+
+        {{#ifCond prewash '>' 0}}
+        <div class="row">
+        	<span class="col-lg-6">Предпране:</span> <span>{{prewash}}</span> <img src="img/timer.png">
+        </div>
+        {{/ifCond}}
+
+        {{#ifCond wash '>' 0}}
+        <div class="row">
+        	<span class="col-lg-6">Пране:</span> <span>{{wash}}</span><img src="img/timer.png">
+        </div>
+        {{/ifCond}}
+
+        {{#ifCond rinse '>' 0}}
+        <div class="row">
+        	<span class="col-lg-6">Плакнене:</span> <span>{{rinse}}</span><img src="img/timer.png">
+        </div>
+        {{/ifCond}}
+
+        {{#ifCond centrifuge '===' "true"}}
+        <div><span>Центрофуга</span></div>
+        {{/ifCond}}
+
+        {{#ifCond iron '===' "true"}}
+        <div><span>Лесно гладене</span></div>
+        {{/ifCond}}
+
+        <a href="#" class="btn btn-success">СТАРТ</a>
+    </div>
+</div>
